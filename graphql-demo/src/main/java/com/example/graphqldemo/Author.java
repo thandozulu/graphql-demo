@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,6 +18,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Author {
 
     @Id
@@ -26,6 +28,6 @@ public class Author {
     private String name;
 
     @OneToMany(mappedBy = "author")
-    private List<Book> books = new ArrayList<Book>();
+    private final List<Book> books = new ArrayList<Book>();
 
 }
